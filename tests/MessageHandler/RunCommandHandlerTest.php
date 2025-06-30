@@ -21,9 +21,9 @@ class RunCommandHandlerTest extends TestCase
         $this->kernel = $this->createMock(KernelInterface::class);
         $this->logger = $this->createMock(LoggerInterface::class);
 
-        /** @var KernelInterface $kernel */
+        /** @var KernelInterface&\PHPUnit\Framework\MockObject\MockObject $kernel */
         $kernel = $this->kernel;
-        /** @var LoggerInterface $logger */
+        /** @var LoggerInterface&\PHPUnit\Framework\MockObject\MockObject $logger */
         $logger = $this->logger;
 
         $this->handler = new RunCommandHandler(

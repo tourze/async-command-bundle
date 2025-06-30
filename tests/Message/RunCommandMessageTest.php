@@ -19,7 +19,8 @@ class RunCommandMessageTest extends TestCase
         $message = new RunCommandMessage();
         $this->expectException(\Error::class);
         $this->expectExceptionMessage('Typed property Tourze\AsyncCommandBundle\Message\RunCommandMessage::$command must not be accessed before initialization');
-        $message->getCommand();
+        
+        $command = $message->getCommand();
     }
 
     public function test_options_initial_state(): void
