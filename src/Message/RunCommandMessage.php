@@ -38,13 +38,15 @@ class RunCommandMessage implements AsyncMessageInterface
 
     /**
      * 命令执行的选项
+     *
+     * @var array<string, mixed>
      */
     private array $options = [];
 
     /**
      * 获取命令选项
      *
-     * @return array 命令选项数组
+     * @return array<string, mixed> 命令选项数组
      */
     public function getOptions(): array
     {
@@ -54,7 +56,7 @@ class RunCommandMessage implements AsyncMessageInterface
     /**
      * 设置命令选项
      *
-     * @param array $options 命令选项数组
+     * @param array<string, mixed> $options 命令选项数组
      */
     public function setOptions(array $options): void
     {

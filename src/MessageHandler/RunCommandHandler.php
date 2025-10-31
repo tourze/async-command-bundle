@@ -2,6 +2,7 @@
 
 namespace Tourze\AsyncCommandBundle\MessageHandler;
 
+use Monolog\Attribute\WithMonologChannel;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -15,6 +16,7 @@ use Tourze\AsyncCommandBundle\Message\RunCommandMessage;
  * @see https://symfony.com/doc/current/console/command_in_controller.html
  */
 #[AsMessageHandler]
+#[WithMonologChannel(channel: 'async_command')]
 class RunCommandHandler
 {
     private Application $application;
@@ -38,15 +40,8 @@ class RunCommandHandler
         $input = new ArrayInput([
             'command' => $message->getCommand(),
             ...$message->getOptions(),
-            // (optional) define the value of command arguments
-            // 'fooArgument' => 'barValue',
-            // (optional) pass options to the command
-            // '--bar' => 'fooValue',
-            // (optional) pass options without value
-            // '--baz' => true,
         ]);
 
-        // You can use NullOutput() if you don't need the output
         $output = new NullOutput();
 
         try {

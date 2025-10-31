@@ -6,3 +6,6 @@ services:
 
   Tourze\AsyncCommandBundle\MessageHandler\:
     resource: '../../MessageHandler/'
+
+  Tourze\AsyncCommandBundle\Service\:
+    resource: '../../Service/'
