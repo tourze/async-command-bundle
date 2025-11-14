@@ -25,7 +25,7 @@ final class AsyncCommandServiceTest extends TestCase
         parent::setUp();
         $this->dispatchedMessages = [];
         $collector = $this;
-        $messageBus = new class ($collector) implements MessageBusInterface {
+        $messageBus = new class($collector) implements MessageBusInterface {
             private AsyncCommandServiceTest $collector;
 
             public function __construct(AsyncCommandServiceTest $collector)
