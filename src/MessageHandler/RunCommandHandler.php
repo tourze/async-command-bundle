@@ -32,7 +32,7 @@ class RunCommandHandler
 
     public function __invoke(RunCommandMessage $message): void
     {
-        $this->logger?->info('准备执行命令', [
+        $this->logger?->debug('准备执行命令', [
             'command' => $message->getCommand(),
             'options' => $message->getOptions(),
         ]);
